@@ -12,7 +12,7 @@ public class CalculatorTests
     public void Plus_TwoNumbers_ReturnSum(double val1, double val2, double expResult)
     {
         //arrange
-        ICalculator calculator = null;
+        ICalculator calculator = new CalculatorImpl();
 
         //act
         var actual = calculator.Plus(val1, val2);
@@ -28,7 +28,7 @@ public class CalculatorTests
     public void Minus_TwoNumbers_ReturnDiff(double val1, double val2, double expResult)
     {
         //arrange
-        ICalculator calculator = null;
+        ICalculator calculator = new CalculatorImpl();
 
         //act
         var actual = calculator.Minus(val1, val2);
@@ -44,7 +44,7 @@ public class CalculatorTests
     public void Multiply_TwoNumbers_ReturnMultiplication(double val1, double val2, double expResult)
     {
         //arrange
-        ICalculator calculator = null;
+        ICalculator calculator = new CalculatorImpl();
 
         //act
         var actual = calculator.Multiply(val1, val2);
@@ -59,7 +59,7 @@ public class CalculatorTests
     public void Divide_TwoNumbers_ReturnQuotient(double val1, double val2, double expResult)
     {
         //arrange
-        ICalculator calculator = null;
+        ICalculator calculator = new CalculatorImpl();
 
         //act
         var actual = calculator.Divide(val1, val2);
@@ -71,9 +71,19 @@ public class CalculatorTests
     [Homework(Homeworks.HomeWork8)]
     public void DivideByZero_ThrowsInvalidOperationException()
     {
-        ICalculator calculator = null;
+        ICalculator calculator = new CalculatorImpl();
 
         //act + assert
-        Assert.Throws<InvalidOperationException>(() => { calculator.Divide(1, 0); });
+        Assert.Throws<DivideByZeroException>(() => { calculator.Divide(1, 0); });
+    }
+    [HomeworkTheory(Homeworks.HomeWork8)]
+    [InlineData("0", "24.3", "bbbbbbbb")]
+    public void InvalidOperationThrowsException(string val1, string val2, string operation)
+    {
+        //arrange
+        ICalculator calculator = new CalculatorImpl();
+        
+        //assert + act
+        Assert.Throws<InvalidOperationException>(() => calculator.Calculate(val1,operation,val2));
     }
 }
