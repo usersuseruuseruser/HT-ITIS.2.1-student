@@ -19,4 +19,12 @@ public class ExpressionTreeVisitorTest
 
         Assert.Throws<Exception>( () => ExpressionTreeVisitorImpl.GetResult(division,1.0,1.0));
     }
+
+    [Homework(Homeworks.HomeWork11)]
+    public void VisitExpression(Expression expression)
+    {
+        var exp = Expression.Constant(5 ,typeof(int));
+        
+        Assert.Equal(5,  ExpressionTreeVisitorImpl.VisitExpressionAsync(exp).Result);
+    }
 }
