@@ -7,6 +7,7 @@ namespace Hw11.Services.ExpressionUtils;
 
 public static class ExpressionTreeVisitorImpl
 {
+    [ExcludeFromCodeCoverage]
     public static async Task<double> VisitExpressionAsync(Expression expression)
     {
         return await VisitAsync((dynamic)expression);
