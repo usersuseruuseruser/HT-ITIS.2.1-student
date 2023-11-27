@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hw11.Services.ExpressionUtils;
 
-public class ExpressionTreeVisitorImpl
+public static class ExpressionTreeVisitorImpl
 {
     public static async Task<double> VisitExpressionAsync(Expression expression)
     {
