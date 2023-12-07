@@ -11,6 +11,23 @@
       <_ContentIncludedByDefault Remove="Views\Calculator\Calculate.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Calculator\Index.cshtml" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.3.8" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Calculator\Calculate.cshtml" />
+    </ItemGroup>
+
+
+
+
+
+
 
 </Project>
