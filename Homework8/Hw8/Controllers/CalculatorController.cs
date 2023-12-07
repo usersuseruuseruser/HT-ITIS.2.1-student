@@ -26,8 +26,9 @@ public class CalculatorController : Controller
     [ExcludeFromCodeCoverage]
     public IActionResult Index()
     {
-        return Content(
+        ViewBag.data =
             "Заполните val1, operation(plus, minus, multiply, divide) и val2 здесь '/calculator/calculate?val1= &operation= &val2= '\n" +
-            "и добавьте её в адресную строку.");
+            "и добавьте её в адресную строку.";
+        return View();
     }
 }
