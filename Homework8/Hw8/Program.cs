@@ -1,19 +1,18 @@
 using System.Diagnostics.CodeAnalysis;
 using Hw8.Calculator;
+using StackExchange.Profiling;
 
 namespace Hw8;
 
 [ExcludeFromCodeCoverage]
-public partial class Program
+public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-    
         builder.Services.AddControllersWithViews();
         builder.Services.AddScoped<ICalculator, CalculatorImpl>();
-        builder.Services.AddMiniProfiler(options => options.RouteBasePath = "/profiler");
-
+        builder.Services.AddMiniProfiler();
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())
@@ -24,14 +23,13 @@ public partial class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
         app.UseRouting();
         app.UseAuthorization();
-
+        
+        app.UseMiniProfiler();
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Calculator}/{action=Index}");
-        app.UseMiniProfiler();
         
         app.Run();
     }

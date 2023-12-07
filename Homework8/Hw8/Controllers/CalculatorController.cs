@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Hw8.Calculator;
 using Microsoft.AspNetCore.Mvc;
+using StackExchange.Profiling;
 
 namespace Hw8.Controllers;
 
