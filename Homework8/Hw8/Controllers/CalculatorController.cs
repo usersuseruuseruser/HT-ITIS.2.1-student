@@ -31,8 +31,4 @@ public class CalculatorController : Controller
             "и добавьте её в адресную строку.";
         return View();
     }
-    public int TestCalculate(int val1, int val2)
-    {
-        return val1 + val2;
-    }
 }
